@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>乐淘云购后台管理系统</title>
+  <!-- 引入bootstrap库 -->
+  <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+  <!-- 引入NProgress -->
+  <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
+  <!-- 引入表单验证插件的css -->
+  <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.min.css">
+  <!-- 引入当前页面的css -->
+  <link rel="stylesheet" href="./css/index.css">
+  <style>
+    body {
+      background-color: #333;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="login">
+      <div class="form_top">后台管理系统</div>
+    <div class="inner">
+      
+      <!-- novalidate 是 h5 新的表单特性 作用是 关闭表单的校验功能 -->
+      <form class="login-wrap" action="/admin/login.php" method="post" novalidate="">
+        <!-- 有错误信息时展示 -->
+        <div class="form-group">
+          <label for="email" class="sr-only">邮箱</label>
+          <input id="email" name="email" type="email" class="form-control" placeholder="邮箱" value="" autofocus="">
+        </div>
+        <div class="form-group">
+          <label for="password" class="sr-only">密码</label>
+          <input id="password" name="password" type="password" class="form-control" placeholder="密码">
+        </div>
+        <button type="button" class="btn btn-default">重置</button>
+        <button type="button" class="btn btn-primary">登录</button>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- 引入jquery -->
+  <script src="./lib/jquery/jquery.min.js"></script>
+  <!-- 引入bootstrap的插件 -->
+  <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+  <!-- 引入echarts库 -->
+  <script src="./lib/echarts/echarts.min.js"></script>
+  <!-- 引入表单验证的插件 -->
+  <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+  <!-- 引入进度条插件 -->
+  <script src="./lib/nprogress/nprogress.js"></script>
+  <!-- 引入admin文件 -->
+  <script src="./js/admin.js"></script>
+  <!-- 引入index.js -->
+  <script src="./js/index.js"></script>
+</body>
+
+</html>
