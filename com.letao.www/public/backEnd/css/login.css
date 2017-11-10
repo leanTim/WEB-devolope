@@ -542,128 +542,36 @@ a,
 a:hover {
   color: #333;
 }
-html,
 body {
-  width: 100%;
-  height: 100%;
+  background-color: #333;
 }
-.lt_aside {
-  position: absolute;
-  width: 300px;
-  height: 100%;
-  background-color: #222d32;
+.login {
+  width: 24%;
+  height: auto;
+  margin-left: 38%;
+  background-color: #fff;
+  margin-top: 200px;
 }
-.lt_aside .web_name {
+.login .form_top {
+  font-size: 14px;
   width: 100%;
   height: 50px;
-  background-color: #337ab7;
-}
-.lt_aside .web_name a {
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  font-size: 26px;
   line-height: 50px;
   text-align: center;
-  font-family: normal;
-  color: #fff;
-}
-.lt_aside .user {
-  width: 100%;
-  height: 150px;
-  padding: 30px 50px;
-  box-sizing: border-box;
-}
-.lt_aside .user a {
-  display: inline-block;
-}
-.lt_aside .user img {
-  height: 90px;
-  width: auto;
-  vertical-align: middle;
-  border-radius: 50%;
-}
-.lt_aside .user span {
-  font-size: 16px;
-  margin-left: 10px;
-  color: #fff;
-}
-.lt_aside .manage {
-  margin-top: 5px;
-}
-.lt_aside .manage ul {
-  width: 100%;
-}
-.lt_aside .manage li {
-  width: 100%;
-  box-sizing: border-box;
-}
-.lt_aside .manage li:last-child {
-  margin-top: 12px;
-}
-.lt_aside .manage i {
-  margin-right: 5px;
-}
-.lt_aside .manage a {
-  display: inline-block;
-  width: 100%;
-  height: 40px;
-  color: #aaa;
-  font-size: 16px;
-  text-align: center;
-  line-height: 40px;
-}
-.lt_main {
-  height: 100%;
-  padding-left: 300px;
-  color: #fff;
-}
-.lt_main .lt_nav {
-  width: 100%;
-  height: 50px;
   background-color: #337ab7;
-  overflow: hidden;
 }
-.lt_main .lt_nav > a {
-  color: #fff;
-  font-size: 16px;
-  height: 50px;
-  line-height: 50px;
-}
-.lt_main .lt_nav > a:first-child {
-  float: left;
-  margin-left: 20px;
-}
-.lt_main .lt_nav > a:nth-child(2) {
-  float: right;
-  margin-right: 20px;
-}
-.lt_main .lt_content {
-  margin-top: 20px;
-}
-.lt_main .lt_content .breadcrumb {
-  height: 50px;
+.login .form-group {
+  width: 100%;
   box-sizing: border-box;
 }
-.lt_main .lt_content .breadcrumb li {
-  margin-top: 10px;
-}
-.lt_main .lt_content .breadcrumb a {
-  font-size: 16px;
-}
-.lt_main .lt_content .echarts {
+.login .inner {
   overflow: hidden;
+  padding: 40px 50px;
 }
-.lt_main .lt_content .echarts .zhu_chart {
-  width: 45%;
-  height: 500px;
+.login .inner .btn {
+  padding: 6px 20px;
   float: left;
 }
-.lt_main .lt_content .echarts .pie_chart {
-  width: 45%;
-  height: 500px;
+.login .inner button:last-child {
   float: right;
-}
-.lt_main.move_right {
-  padding-left: 0;
 }
