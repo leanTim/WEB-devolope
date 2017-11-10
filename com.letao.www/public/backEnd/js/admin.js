@@ -24,7 +24,11 @@ $(function() {
     // console.log(txt)
     $('.breadcrumb').children().eq(2).show().html($txt)
 
+  })
 
+  $('.web_name').on('click', function () {
+    $('.breadcrumb').find('a').eq(1).html('首页')
+    $('.manage-li').children('a').removeClass('link')
   })
 
 
