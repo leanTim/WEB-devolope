@@ -29,30 +29,31 @@
         <img src="./images/default.png" alt="">
       </a>
       <span>超级管理员</span>
+      
     </div>
     <!-- 用户管理 -->
     <div class="manage">
-      <ul>
-        <li>
+      <ul class="manage_button">
+        <li class="manage-li">
           <a href="javascript:;">
             <i class="glyphicon glyphicon-user"></i>用户管理
           </a>
         </li>
         <li class="glyphicon glyphicon-list">
-          <a href="#sort-manage" class="collapsed" data-toggle="collapse">
+          <a href=".sort-manage" class="collapsed manage-li" data-toggle="collapse">
             <i class="glyphicon glyphicon-list"></i>分类管理
           </a>
-          <ul id="sort-manage" class="collapse">
+          <ul class="collapse sort-manage" id="sort-two">
             <li>
-              <a href="posts.php">一级分类</a>
+              <a href="javascript:;">一级分类</a>
             </li>
             <li>
-              <a href="post-add.php">二级分类</a>
+              <a href="javascript:;">二级分类</a>
             </li>
 
           </ul>
         </li>
-        <li>
+        <li class="manage-li">
           <a href="javascript:;">
             <i class="glyphicon glyphicon-tags"></i>商品管理
           </a>
@@ -110,7 +111,7 @@
             <a href="#">首页</a>
           </li>
           <!--  -->
-          <!-- <li class="active">Data</li> -->
+          <li class="active" style="display: none;">Data</li>
         </ol>
         <!-- echarts -->
         <div class="echarts">
