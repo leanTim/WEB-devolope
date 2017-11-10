@@ -87,40 +87,35 @@
       </li>
     </ul>
   </nav> -->
-  <div id="content">
+  <div id="content" test>
+          
+
 
   </div>
 
   <script src="./lib/jquery/jquery.min.js"></script>
   <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
-  <script id="test" type="text/html">
-    {{each data as value i}}
-    <ul>
-      <li>{{a}}</li>
-      <li>{{b}}</li>
-    </ul>
-    {{/each}}
-
-  </script>
   <script src="./lib/artTemplate/template.js"></script>
   <script>
+    var test = $('[test]')
+    console.log(test[0])
     // var data = {
     //   title: '标签',
     //   list: ['文艺', '博客', '摄影', '电影', '民谣', '旅行', '吉他']
-    // };
-    var data = [{
-      a: 1,
-      b: 2
-    }, {
-      a: 2,
-      b: 3
-    }, {
-      a: 3,
-      b: 4
-    }]
-    var html = template('test', data);
-    console.log(html)
-    $('#content').html(html)
+  //   // };
+  //   var data = [{
+  //     a: 1,
+  //     b: 2
+  //   }, {
+  //     a: 2,
+  //     b: 3
+  //   }, {
+  //     a: 3,
+  //     b: 4
+  //   }]
+  //   var html = template('test', data);
+  //   console.log(html)
+  //   $('#content').html(html)
   </script>
 </body>
 

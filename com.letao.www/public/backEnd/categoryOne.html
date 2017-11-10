@@ -19,7 +19,9 @@
 </head>
 
 <body>
-  <script>NProgress.start()</script>
+  <script>
+    NProgress.start()
+  </script>
   <!-- 侧边栏 -->
   <aside class="lt_aside">
     <div class="web_name">
@@ -31,18 +33,18 @@
         <img src="./images/default.png" alt="">
       </a>
       <span>超级管理员</span>
-      
+
     </div>
     <!-- 用户管理 -->
     <div class="manage">
       <ul class="manage_button">
         <li class="manage-li">
-          <a href="./userManage.html"  class="link">
+          <a href="./userManage.html">
             <i class="glyphicon glyphicon-user"></i>用户管理
           </a>
         </li>
         <li class="glyphicon glyphicon-list manage-li">
-          <a href=".sort-manage" class="collapsed" data-toggle="collapse">
+          <a href=".sort-manage" class="collapsed link" data-toggle="collapse">
             <i class="glyphicon glyphicon-list"></i>分类管理
           </a>
           <ul class="collapse sort-manage" id="sort-two">
@@ -123,27 +125,30 @@
               <thead>
                 <tr>
                   <th class="col-md-1">序号</th>
-                  <th class="col-md-4">用户名</th>
-                  <th class="col-md-4">手机号</th>
-                  <th class="col-md-2">状态</th>
+                  <th class="col-md-3">商品名称</th>
+                  <th class="col-md-3">商品描述</th>
+                  <th class="col-md-1">尺寸</th>
+                  <th class="col-md-2">描述</th>
+                  <th class="col-md-1">状态</th>
                   <th class="col-md-1">操作</th>
                 </tr>
               </thead>
               <tbody class="table_s">
-                <!-- <tr>
-                  <td class="col-md-1">sdaf</td>
-                  <td class="col-md-4">asefa</td>
-                  <td class="col-md-4">sdae</td>
-                  <td class="col-md-2">asfeade</td>
-                  <td class="col-md-1">dsfeae</td>
-                </tr> -->
+                  <!-- <tr>
+                      {{each value as val j}}
+                      <td class="col-md-1">sdaf</td>
+                      <td class="col-md-3">asefa</td>
+                      <td class="col-md-3">sdae</td>
+                      <td class="col-md-1">asfeade</td>
+                      <td class="col-md-2">dsfeae</td>
+                      <td class="col-md-1">dsfeae</td>
+                      <td  -->
               </tbody>
             </table>
-
           </div>
         </div>
         <!-- 分页 -->
-        
+
         <nav aria-label="Page navigation">
           <ul class="pagination">
             <li>
@@ -151,11 +156,21 @@
                 <span aria-hidden="true">&laquo;</span>
               </a>
             </li>
-            <li class="active"><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
+            <li class="active">
+              <a href="#">1</a>
+            </li>
+            <li>
+              <a href="#">2</a>
+            </li>
+            <li>
+              <a href="#">3</a>
+            </li>
+            <li>
+              <a href="#">4</a>
+            </li>
+            <li>
+              <a href="#">5</a>
+            </li>
             <li>
               <a href="#" aria-label="Next">
                 <span aria-hidden="true">&raquo;</span>
@@ -164,7 +179,7 @@
           </ul>
         </nav>
         <!-- </div> -->
-    
+
       </div>
     </div>
 
@@ -178,27 +193,28 @@
   <script src="./lib/echarts/echarts.min.js"></script>
   <!-- 引入表单验证的插件 -->
   <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
-  
+  <!-- 引入arttemplate库 -->
+  <script src="./lib/artTemplate/template.js"></script>
   <!-- 引入admin文件 -->
   <script src="./js/admin.js"></script>
-  <!-- 引入artTemlate -->
-  <script src="./lib/artTemplate/template.js"></script>
   <script type="text/x-template" id="test">
     
     <tr>
       <td class="col-md-1">{{id}}</td>
-      <td class="col-md-4">{{username}}</td>
-      <td class="col-md-4">{{mobile}}</td>
-      <td class="col-md-2">{{size}}</td>
-      <td class="col-md-1">{{isDelete}}</td>
+      <td class="col-md-3">{{proName}}</td>
+      <td class="col-md-3">{{proDesc}}</td>
+      <td class="col-md-1">{{size}}</td>
+      <td class="col-md-2">{{price}}</td>
 
+      <td class="col-md-1">{{statu}}</td>
+      <td class="col-md-1">{{brandId}}</td>
     </tr>
    
   </script>
   <script>
     $(function ($) {
       $.ajax({
-        url: '/public/backEnd/api/userData.php',
+        url: '/public/backEnd/api/produceData.php',
         type: 'get',
         dataType: 'json',
         success: function (res) {
@@ -219,11 +235,12 @@
       
 
     })
-  
   </script>
   <!-- 引入index.js -->
   <!-- <script src="./js/index.js"></script> -->
-  <script>NProgress.done()</script>
+  <script>
+    NProgress.done()
+  </script>
 </body>
 
 </html>
