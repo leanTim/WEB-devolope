@@ -72,11 +72,11 @@
       </a>
 
       <!-- Button trigger modal -->
-      <a data-toggle="modal" href=".bs-example-modal-sm">
+      <a data-toggle="modal" href="#modal-hide">
         <i class="glyphicon glyphicon-log-out"></i>
       </a>
       <!-- Modal -->
-      <div class="modal fade bs-example-modal-sm" tabindex="-1">
+      <div id="modal-hide" class="modal fade bs-example-modal-sm" tabindex="-1">
         <div class="modal-dialog modal-sm">
           <div class="modal-content">
             <div class="modal-header">
@@ -93,8 +93,8 @@
               </div>
             </div>
             <div class="modal-footer">
-              <a href="javascript:;" class="btn btn-default" data-dismiss="modal">取消</a>
-              <a href="javascript:;" class="btn btn-primary">确定</a>
+              <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+              <button type="button" class="btn btn-primary logout">确定</button>
             </div>
           </div>
         </div>

@@ -32,5 +32,22 @@ $(function() {
   })
 
 
+  //点击遮罩层的的确定按钮 发送ajax请求 跳转回login页面
+  $('.logout').on('click', function () {
+    $.ajax({
+      type: 'get',
+      url: '/employee/employeeLogout',
+      data: {},
+      dataType: 'json',
+      success: function (res) {
+        // console.log(res.success)
+        if (res.success) {
+          $('#modal-hide').modal('hide')
+          window.location.href = './login.html'
+        }
+      }
+    })
+  })
+
 
 });

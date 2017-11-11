@@ -29,18 +29,20 @@
     <div class="inner">
       
       <!-- novalidate 是 h5 新的表单特性 作用是 关闭表单的校验功能 -->
-      <form class="login-wrap" action="/admin/login.php" method="post" novalidate="">
+      <form class="login-wrap" novalidate="" id="defaultForm">
         <!-- 有错误信息时展示 -->
         <div class="form-group">
-          <label for="email" class="sr-only">邮箱</label>
-          <input id="email" name="email" type="email" class="form-control" placeholder="邮箱" value="" autofocus="">
+          <label for="username" class="sr-only">邮箱</label>
+          <input id="username" name="username" type="text" class="form-control" placeholder="邮箱" value="" autofocus="">
         </div>
         <div class="form-group">
           <label for="password" class="sr-only">密码</label>
           <input id="password" name="password" type="password" class="form-control" placeholder="密码">
         </div>
-        <button type="button" class="btn btn-default">重置</button>
-        <button type="button" class="btn btn-primary">登录</button>
+        <div class="form-group">
+          <button type="button" class="btn btn-default">重置</button>
+          <button type="submit" class="btn btn-primary">登录</button>
+        </div>
       </form>
     </div>
   </div>
@@ -56,10 +58,9 @@
   <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
   <!-- 引入进度条插件 -->
   <script src="./lib/nprogress/nprogress.js"></script>
-  <!-- 引入admin文件 -->
-  <!-- <script src="./js/admin.js"></script> -->
-  <!-- 引入index.js -->
-  <!-- <script src="./js/index.js"></script> -->
+  <!-- 引入login.index -->
+  <script src="./js/login.js"></script>
+
 </body>
 
 </html>
