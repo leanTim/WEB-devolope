@@ -16,6 +16,31 @@
   <link rel="stylesheet" href="./css/index.css">
   <!-- 引入进度条插件 -->
   <script src="./lib/nprogress/nprogress.js"></script>
+  <style>
+    .dropdown {
+      margin-bottom: 10px;
+    }
+    .dropdown-menu {
+      font-size: 14px;
+
+    }
+    .dropdown-menu li {
+      height: 30px;
+      line-height: 30px;
+      padding-left: 20px;
+      /* margin-top: 20px; */
+    }
+    .fileupload {
+      position: relative;
+    }
+    .fileupload input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      height: 30px;
+    }
+  </style>
 </head>
 
 <body>
@@ -112,7 +137,10 @@
             <a href="#">管理系统</a>
           </li>
           <li>
-            <a href="#">首页</a>
+            <a href="#">分类管理</a>
+          </li>
+          <li>
+            <a href="#">二级分类</a>
           </li>
           <!--  -->
           <li class="active" style="display: none;">Data</li>
@@ -133,15 +161,32 @@
                 <h4 class="modal-title" id="myModalLabel">添加分类</h4>
               </div>
               <div class="modal-body">
-                <form action="#" id="form">
+                <div class="dropdown">一级分类：
+                  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                    <!-- 请选择 -->
+                    <span class="dropdown-text">游泳馆</span>
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    
+                  </ul>
+                </div>
+                <form action="#" id="categoryTwo-form-submit">
+                  <input type="hidden" name="categoryId" id="hiddenIpt">
                   <div class="form-group">
-                    <input name="categoryName" type="text" class="form-control" placeholder="请输入一级分类名称">
+                    <input name="brandName" type="text" class="form-control" placeholder="请输入二级分类名称">
                   </div>
+                  <div class="form-group fileupload">
+                      <a href="javascript:;" class="btn btn-default">上传图片</a>
+                      <input type="file" id="LogoImg" name="pic1">
+                      <input type="hidden" id="brandLogo" name="brandLogo">
+                    </div>
+                      <img width="100" src="./images/none.png" alt="" id="prevImg">
                 </form>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="submit" class="btn btn-primary" form="categoryTwo-form-submit">保存</button>
               </div>
             </div>
           </div>
@@ -156,13 +201,17 @@
               <thead>
                 <tr>
                   <th>序号</th>
-                  <th>分类</th>
+                  <th>一级分类名称</th>
+                  <th>二级分类名称</th>
+                  <th>二级分类LOGO</th>
                 </tr>
               </thead>
               <tbody class="table_s">
                 <tr>
                   <th>1</th>
-                  <th></th>
+                  <th>2</th>
+                  <th>3</th>
+                  <th>4</th>
                 </tr>
               </tbody>
             </table>
@@ -175,8 +224,6 @@
           </ul>
         </div>
         <!-- </div> -->
-
-
       </div>
     </div>
 
@@ -184,33 +231,42 @@
 
   <!-- 引入jquery -->
   <script src="./lib/jquery/jquery.min.js"></script>
+  <!-- 引入分页插件 -->
+  <script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
   <!-- 引入bootstrap的插件 -->
   <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
-  <!-- 引入echarts库 -->
-  <script src="./lib/echarts/echarts.min.js"></script>
   <!-- 引入表单验证的插件 -->
   <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+  <!-- 引入文件上传插件 -->
+  <script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+  <script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
+  <!-- <script src="./lib/jquery-fileupload/jquery.iframe-transport.js"></script> -->
   <!-- 引入arttemplate库 -->
-  <script src="./lib/artTemplate/template.js"></script>
+  <script src="./lib/artTemplate/template-native.js"></script>
   <!-- 引入admin文件 -->
   <script src="./js/admin.js"></script>
-  <script type="text/x-template" id="test">
+  <!-- 引入本页js文件 -->
+  <script src="./js/categoryTwo.js"></script>
 
-    <tr>
-      <td class="col-md-1">{{id}}</td>
-      <td class="col-md-3">{{proName}}</td>
-      <td class="col-md-3">{{proDesc}}</td>
-      <td class="col-md-1">{{size}}</td>
-      <td class="col-md-2">{{price}}</td>
-
-      <td class="col-md-1">{{statu}}</td>
-      <td class="col-md-1">{{brandId}}</td>
-    </tr>
-
+  <script type="text/template" id="second-template">
+    <% for(var i=0;i<rows.length;i++){%>
+      <tr class="text-center">
+        <td>
+          <%=(page-1)*size+i+1%>
+        </td>
+        <td>
+          <%=rows[i].categoryName%>
+        </td>
+        <td>
+          <%=rows[i].brandName%>
+        </td>
+        <td>
+          <img height="30" src="<%=rows[i].brandLogo%>" alt="">
+        </td>
+      </tr>
+      <%}%>
   </script>
 
-  <!-- 引入index.js -->
-  <!-- <script src="./js/index.js"></script> -->
   <script>
     NProgress.done()
   </script>

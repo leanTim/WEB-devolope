@@ -23,6 +23,20 @@ $(function ($) {
           size: 'small',
           /*当前页*/
           currentPage: res.page,
+          itemTexts: function (type, page, current) {  
+            switch (type) {  
+                case "first":  
+                    return "首页";  
+                case "prev":  
+                    return "上一页";  
+                case "next":  
+                    return "下一页";  
+                case "last":  
+                    return "末页";  
+                case "page":  
+                    return page;  
+            }  
+          }, 
           /*一共多少页*/
           // 总页数=数据的总数/每页显示多少条数据
           totalPages: Math.ceil(res.total / res.size),
