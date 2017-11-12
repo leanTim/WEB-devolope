@@ -47,7 +47,8 @@ $(function ($) {
     var $name = $(this).data('name')
     // var isDelete = $(this).hasClass('btn-danger') ? 1 : 0;
 
-    var $isDelete = $(this).data('isdelete')
+    // var $isDelete = $(this).data('isdelete')
+    var $isDelete = $(this).hasClass('.btn-danger') ? 1 : 0
     // console.log($isDelete)
     // console.log($id, $name)
    if ($isDelete === 1) {
@@ -57,6 +58,7 @@ $(function ($) {
    }
   
    $('#manage-modal').on('click', '.btn-primary', function () {
+    //  console.log($id, $isDelete)
     $.ajax({
       url: '/user/updateUser',
       type: 'post',
@@ -66,14 +68,13 @@ $(function ($) {
         isDelete: $isDelete
       },
       success: function (data) {
-        // console.log(data)
-        if (data.success == true) {
+        console.log(data)
+        if (data.success === true) {
           $('#manage-modal').modal('hide')
           userDate()
         }
       }
     })
-
 
 
    })

@@ -44,7 +44,7 @@
           </a>
         </li>
         <li class="glyphicon glyphicon-list manage-li">
-          <a href=".sort-manage" class="collapsed" data-toggle="collapse">
+          <a href=".sort-manage" class="collapsed link" data-toggle="collapse">
             <i class="glyphicon glyphicon-list"></i>分类管理
           </a>
           <ul class="collapse sort-manage" id="sort-two">
@@ -52,13 +52,13 @@
               <a href="./categoryOne.html">一级分类</a>
             </li>
             <li>
-              <a href="./catogoryTwo.html">二级分类</a>
+              <a href="./categoryTwo.html">二级分类</a>
             </li>
 
           </ul>
         </li>
         <li class="manage-li">
-          <a href="./produceManage.html" class="link">
+          <a href="./produceManage.html">
             <i class="glyphicon glyphicon-tags"></i>商品管理
           </a>
         </li>
@@ -74,11 +74,11 @@
       </a>
 
       <!-- Button trigger modal -->
-      <a data-toggle="modal" href="#top-nav">
+      <a data-toggle="modal" href="#top-modal">
         <i class="glyphicon glyphicon-log-out"></i>
       </a>
       <!-- Modal -->
-      <div id="top-nav" class="modal fade bs-example-modal-sm" tabindex="-1">
+      <div id="top-modal" class="modal fade bs-example-modal-sm" tabindex="-1">
         <div class="modal-dialog modal-sm">
           <div class="modal-content">
             <div class="modal-header">
@@ -117,6 +117,37 @@
           <!--  -->
           <li class="active" style="display: none;">Data</li>
         </ol>
+        <!-- 添加分类的模态框 -->
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#addSort" style="margin-bottom: 20px;">
+          添加分类
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade bs-example-modal-sm" id="addSort" tabindex="-1">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">添加分类</h4>
+              </div>
+              <div class="modal-body">
+                <form action="#" id="form">
+                  <div class="form-group">
+                    <input name="categoryName" type="text" class="form-control" placeholder="请输入一级分类名称">
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
         <!-- 表格 -->
         <!-- <div class="container"> -->
         <div class="table-content">
@@ -124,61 +155,27 @@
             <table class="table table-striped table-bordered table-hover">
               <thead>
                 <tr>
-                  <th class="col-md-1">序号</th>
-                  <th class="col-md-3">商品名称</th>
-                  <th class="col-md-3">商品描述</th>
-                  <th class="col-md-1">尺寸</th>
-                  <th class="col-md-2">描述</th>
-                  <th class="col-md-1">状态</th>
-                  <th class="col-md-1">操作</th>
+                  <th>序号</th>
+                  <th>分类</th>
                 </tr>
               </thead>
               <tbody class="table_s">
-                  <!-- <tr>
-                      {{each value as val j}}
-                      <td class="col-md-1">sdaf</td>
-                      <td class="col-md-3">asefa</td>
-                      <td class="col-md-3">sdae</td>
-                      <td class="col-md-1">asfeade</td>
-                      <td class="col-md-2">dsfeae</td>
-                      <td class="col-md-1">dsfeae</td>
-                      <td  -->
+                <tr>
+                  <th>1</th>
+                  <th></th>
+                </tr>
               </tbody>
             </table>
           </div>
         </div>
         <!-- 分页 -->
 
-        <nav aria-label="Page navigation">
+        <div class="page">
           <ul class="pagination">
-            <li>
-              <a href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-              </a>
-            </li>
-            <li class="active">
-              <a href="#">1</a>
-            </li>
-            <li>
-              <a href="#">2</a>
-            </li>
-            <li>
-              <a href="#">3</a>
-            </li>
-            <li>
-              <a href="#">4</a>
-            </li>
-            <li>
-              <a href="#">5</a>
-            </li>
-            <li>
-              <a href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-              </a>
-            </li>
           </ul>
-        </nav>
+        </div>
         <!-- </div> -->
+
 
       </div>
     </div>
@@ -195,12 +192,10 @@
   <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
   <!-- 引入arttemplate库 -->
   <script src="./lib/artTemplate/template.js"></script>
-
-  <!-- <script src="./js/categoryOne.js"></script> -->
   <!-- 引入admin文件 -->
   <script src="./js/admin.js"></script>
   <script type="text/x-template" id="test">
-    
+
     <tr>
       <td class="col-md-1">{{id}}</td>
       <td class="col-md-3">{{proName}}</td>
@@ -211,33 +206,9 @@
       <td class="col-md-1">{{statu}}</td>
       <td class="col-md-1">{{brandId}}</td>
     </tr>
-   
-  </script>
-  <script>
-    $(function ($) {
-      $.ajax({
-        url: '/public/backEnd/api/produceData.php',
-        type: 'get',
-        dataType: 'json',
-        success: function (res) {
-          // var html = template('test', res)
-          // console.log(html)
-          // $('.table_s').html(html)
-          // for(var i = 0; i < res.length; i++) {
-          //   var html = template('test', res[i])
-          // }
-          var $tb = $('.table_s')
-          res.forEach(function (val, i) {
-            var html = template('test', val)
-            $tb.append(html)
-          })
-        }
-      })
-      
-      
 
-    })
   </script>
+
   <!-- 引入index.js -->
   <!-- <script src="./js/index.js"></script> -->
   <script>
