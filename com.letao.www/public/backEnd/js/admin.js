@@ -1,4 +1,13 @@
 $(function() {
+  // 全局监听 当页面中某一个ajax请求发起的时候  让进图条开始
+  $(window).ajaxStart(function(){
+    NProgress.start();
+  })
+
+  // 当ajax请求完成的时候 让进度条完成
+  $(window).ajaxComplete(function(){
+    NProgress.done();
+  })
   // 该文件的功能是用来写首页的js交互的
   //点击侧边栏隐藏
   $(".menu").on("click", function() {

@@ -10,10 +10,13 @@
   <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
   <!-- 引入NProgress -->
   <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
+  <!-- 引入分页组件 -->
+  <!-- <link rel="stylesheet" href="./lib/bootstrap-paginator/bootstrap-paginator.min."> -->
   <!-- 引入表单验证插件的css -->
   <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.min.css">
   <!-- 引入当前页面的css -->
   <link rel="stylesheet" href="./css/index.css">
+  <!-- y -->
   <!-- 引入进度条插件 -->
   <script src="./lib/nprogress/nprogress.js"></script>
 </head>
@@ -72,11 +75,11 @@
       </a>
 
       <!-- Button trigger modal -->
-      <a data-toggle="modal" href=".bs-example-modal-sm">
+      <a data-toggle="modal" href="#nav-top-modal">
         <i class="glyphicon glyphicon-log-out"></i>
       </a>
       <!-- Modal -->
-      <div class="modal fade bs-example-modal-sm" tabindex="-1">
+      <div id="nav-top-modal" class="modal fade bs-example-modal-sm" tabindex="-1">
         <div class="modal-dialog modal-sm">
           <div class="modal-content">
             <div class="modal-header">
@@ -119,24 +122,17 @@
         <!-- <div class="container"> -->
         <div class="table-content">
           <div class="row">
-            <table class="table table-striped table-bordered table-hover">
+            <table class="table table-striped table-bordered table-hover" style="font-size: 14px;">
               <thead>
                 <tr>
-                  <th class="col-md-1">序号</th>
-                  <th class="col-md-4">用户名</th>
-                  <th class="col-md-4">手机号</th>
-                  <th class="col-md-2">状态</th>
-                  <th class="col-md-1">操作</th>
+                  <th>序号</th>
+                  <th>用户名</th>
+                  <th>手机号</th>
+                  <th>状态</th>
+                  <th>操作</th>
                 </tr>
               </thead>
               <tbody class="table_s">
-                <!-- <tr>
-                  <td class="col-md-1">sdaf</td>
-                  <td class="col-md-4">asefa</td>
-                  <td class="col-md-4">sdae</td>
-                  <td class="col-md-2">asfeade</td>
-                  <td class="col-md-1">dsfeae</td>
-                </tr> -->
               </tbody>
             </table>
 
@@ -144,31 +140,59 @@
         </div>
         <!-- 分页 -->
         
-        <nav aria-label="Page navigation">
+        <div class="page">
           <ul class="pagination">
-            <li>
-              <a href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-              </a>
-            </li>
-            <li class="active"><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li>
-              <a href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-              </a>
-            </li>
           </ul>
-        </nav>
+        </div>
         <!-- </div> -->
     
       </div>
     </div>
 
+
+    <!-- Modal -->
+    <div id="manage-modal" class="modal fade bs-example-modal-sm" tabindex="-1">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">温馨提示</h4>
+          </div>
+          <div class="modal-body">
+            <div class="alert alert-danger" role="alert" id="toggle-able">
+              <!-- <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+              您确定要退出后台系统吗 -->
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default disa" data-dismiss="modal">取消</button>
+            <button type="button" class="btn btn-primary disa">确定</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
+
+  <script type="text/x-template" id="user-template">
+    <%for (var i = 0; i < rows.length; i++) {%>
+    <tr class="text-center">
+      <td><%=(page-1) * size + i + 1%></td>
+      <td><%=rows[i].username%></td>
+      <td><%=rows[i].mobile%></td>
+      <td><%=rows[i].isDelete === 1 ? '禁用' : '正常'%></td>
+      <td>
+        <%if(rows[i].isDelete === 1) {%>
+          <a data-id="<%=rows[i].id%>" data-isDelete="<%=rows[i].isDelete%>" data-name="<%=rows[i].username%>"  href="#manage-modal" data-toggle="modal" class="btn btn-primary">启用</a>
+          <%}else {%>
+          <a data-id="<%=rows[i].id%>" data-isDelete="<%=rows[i].isDelete%>" data-name="<%=rows[i].username%>" href="#manage-modal" data-toggle="modal" class="btn btn-danger">禁用</a>
+          <%}%>
+      </td>
+    </tr>
+    <%}%>
+  </script>
+
 
   <!-- 引入jquery -->
   <script src="./lib/jquery/jquery.min.js"></script>
@@ -178,51 +202,14 @@
   <script src="./lib/echarts/echarts.min.js"></script>
   <!-- 引入表单验证的插件 -->
   <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
-  
+  <!-- 引入bootstrap 分页组件 -->
+  <script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
   <!-- 引入admin文件 -->
   <script src="./js/admin.js"></script>
   <!-- 引入artTemlate -->
-  <script src="./lib/artTemplate/template.js"></script>
-  <script type="text/x-template" id="test">
-    
-    <tr>
-      <td class="col-md-1">{{id}}</td>
-      <td class="col-md-4">{{username}}</td>
-      <td class="col-md-4">{{mobile}}</td>
-      <td class="col-md-2">{{size}}</td>
-      <td class="col-md-1">{{isDelete}}</td>
-
-    </tr>
-   
-  </script>
-  <script>
-    $(function ($) {
-      $.ajax({
-        url: '/public/backEnd/api/userData.php',
-        type: 'get',
-        dataType: 'json',
-        success: function (res) {
-          // var html = template('test', res)
-          // console.log(html)
-          // $('.table_s').html(html)
-          // for(var i = 0; i < res.length; i++) {
-          //   var html = template('test', res[i])
-          // }
-          var $tb = $('.table_s')
-          res.forEach(function (val, i) {
-            var html = template('test', val)
-            $tb.append(html)
-          })
-        }
-      })
-      
-      
-
-    })
+  <script src="./lib/artTemplate/template-native.js"></script>
+  <script src="./js/userManage.js"></script>
   
-  </script>
-  <!-- 引入index.js -->
-  <!-- <script src="./js/index.js"></script> -->
   <script>NProgress.done()</script>
 </body>
 
