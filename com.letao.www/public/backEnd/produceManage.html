@@ -16,6 +16,18 @@
   <link rel="stylesheet" href="./css/index.css">
   <!-- 引入进度条插件 -->
   <script src="./lib/nprogress/nprogress.js"></script>
+  <style>
+    .fileupload {
+      position: relative;
+    }
+    .fileupload input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      height: 30px;
+    }
+  </style>
 </head>
 
 <body>
@@ -52,7 +64,7 @@
               <a href="./categoryOne.html">一级分类</a>
             </li>
             <li>
-              <a href="./catogoryTwo.html">二级分类</a>
+              <a href="./categoryTwo.html">二级分类</a>
             </li>
 
           </ul>
@@ -117,6 +129,62 @@
           <!--  -->
           <li class="active" style="display: none;">Data</li>
         </ol>
+
+         <!-- 添加分类的模态框 -->
+         <button type="button" class="btn btn-default" data-toggle="modal" data-target="#produce-modal" style="margin-bottom: 20px;">
+            添加分类
+          </button>
+  
+          <!-- Modal -->
+          <div class="modal fade" id="produce-modal" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="myModalLabel">添加分类</h4>
+                </div>
+                <div class="modal-body">
+
+                  <form action="#" id="categoryTwo-form-submit">
+
+                    <div class="form-group">
+                      <input name="proName" type="text" class="form-control" placeholder="请输入产品名称">
+                    </div>
+                    <div class="form-group">
+                      <textarea name="proDesc" class="form-control" rows="3" placeholder="请输入商品描述"></textarea>
+                    </div>
+                    <div class="form-group">
+                      <input name="num" type="text" class="form-control" placeholder="请输入商品库存">
+                    </div>
+                    <div class="form-group">
+                      <input name="price" type="text" class="form-control" placeholder="请输入商品价格">
+                    </div>
+                    <div class="form-group">
+                      <input name="oldPrice" type="text" class="form-control" placeholder="请输入商品原价">
+                    </div>
+                    <div class="form-group">
+                      <input name="size" type="text" class="form-control" placeholder="请输入商品尺寸">
+                      <!-- <input type="hidden" name="statu" class="form-control" value="1"> -->
+                    </div>
+                    <div class="form-group fileupload">
+                        <a href="javascript:;" class="btn btn-default" style="font-size: 14px;">上传图片</a>提示：必须上传3张图片
+                        <input type="file" id="produceImg" name="pic1" class="form-control">
+                        <!-- <input type="hidden" id="brandLogo" name="brandLogo"> -->
+                      </div>
+                      <div class="image-box">
+                          <!-- <img width="50" src="." alt="" id="produce-image"> -->
+                      </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                  <button type="submit" class="btn btn-primary" form="categoryTwo-form-submit">保存</button>
+                </div>
+              </div>
+            </div>
+          </div>
         <!-- 表格 -->
         <!-- <div class="container"> -->
         <div class="table-content">
@@ -124,60 +192,27 @@
             <table class="table table-striped table-bordered table-hover">
               <thead>
                 <tr>
-                  <th class="col-md-1">序号</th>
-                  <th class="col-md-3">商品名称</th>
-                  <th class="col-md-3">商品描述</th>
-                  <th class="col-md-1">尺寸</th>
-                  <th class="col-md-2">描述</th>
-                  <th class="col-md-1">状态</th>
-                  <th class="col-md-1">操作</th>
+                  <th>序号</th>
+                  <th>商品名称</th>
+                  <th>商品描述</th>
+                  <th>商品库存</th>
+                  <th>商品尺寸</th>
+                  <th>商品状态</th>
+                  <th>操作</th>
                 </tr>
               </thead>
               <tbody class="table_s">
-                  <!-- <tr>
-                      {{each value as val j}}
-                      <td class="col-md-1">sdaf</td>
-                      <td class="col-md-3">asefa</td>
-                      <td class="col-md-3">sdae</td>
-                      <td class="col-md-1">asfeade</td>
-                      <td class="col-md-2">dsfeae</td>
-                      <td class="col-md-1">dsfeae</td>
-                      <td  -->
+
               </tbody>
             </table>
           </div>
         </div>
         <!-- 分页 -->
 
-        <nav aria-label="Page navigation">
+        <div class="page">
           <ul class="pagination">
-            <li>
-              <a href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-              </a>
-            </li>
-            <li class="active">
-              <a href="#">1</a>
-            </li>
-            <li>
-              <a href="#">2</a>
-            </li>
-            <li>
-              <a href="#">3</a>
-            </li>
-            <li>
-              <a href="#">4</a>
-            </li>
-            <li>
-              <a href="#">5</a>
-            </li>
-            <li>
-              <a href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-              </a>
-            </li>
           </ul>
-        </nav>
+        </div>
         <!-- </div> -->
 
       </div>
@@ -194,50 +229,32 @@
   <!-- 引入表单验证的插件 -->
   <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
   <!-- 引入arttemplate库 -->
-  <script src="./lib/artTemplate/template.js"></script>
+  <script src="./lib/artTemplate/template-native.js"></script>
+  <!-- 引入文件上传插件 -->
+  <script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+  <script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
 
-  <!-- <script src="./js/categoryOne.js"></script> -->
+  <!-- 引入本页js文件 -->
+  <script src="./js/produceManage.js"></script>
   <!-- 引入admin文件 -->
   <script src="./js/admin.js"></script>
-  <script type="text/x-template" id="test">
-    
+  <script type="text/x-template" id="produce-template">
+    <%for (var i = 0; i < rows.length; i++) {%>
     <tr>
-      <td class="col-md-1">{{id}}</td>
-      <td class="col-md-3">{{proName}}</td>
-      <td class="col-md-3">{{proDesc}}</td>
-      <td class="col-md-1">{{size}}</td>
-      <td class="col-md-2">{{price}}</td>
-
-      <td class="col-md-1">{{statu}}</td>
-      <td class="col-md-1">{{brandId}}</td>
+      <td><%=(page-1)*size + i + 1%></td>
+      <td><%=rows[i].proName%></td>
+      <td><%=rows[i].proDesc%></td>
+      <td><%=rows[i].num%></td>
+      <td><%=rows[i].size%></td>
+      <td>已上架</td>
+      <td>
+        <a href="javascript:;" class="btn btn-danger">下架</a>
+        <a href="javascript:;" class="btn btn-primary">编辑</a>
+      </td>
     </tr>
-   
+    <%}%>
   </script>
-  <script>
-    $(function ($) {
-      $.ajax({
-        url: '/public/backEnd/api/produceData.php',
-        type: 'get',
-        dataType: 'json',
-        success: function (res) {
-          // var html = template('test', res)
-          // console.log(html)
-          // $('.table_s').html(html)
-          // for(var i = 0; i < res.length; i++) {
-          //   var html = template('test', res[i])
-          // }
-          var $tb = $('.table_s')
-          res.forEach(function (val, i) {
-            var html = template('test', val)
-            $tb.append(html)
-          })
-        }
-      })
-      
-      
 
-    })
-  </script>
   <!-- 引入index.js -->
   <!-- <script src="./js/index.js"></script> -->
   <script>

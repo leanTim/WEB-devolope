@@ -140,6 +140,8 @@ $(function($) {
       });
     });
 
+    
+
   //校验图片
   var uploadpic = function() {
     $("#LogoImg").fileupload({
