@@ -10,8 +10,41 @@ $(function ($) {
       },
       dataType: 'json',
       success: function (data) {
+        console.log(data)
         var html = template('produce-template', data)
         $('.table_s').html(html)
+        
+        $(".pagination").bootstrapPaginator({
+          bootstrapMajorVersion: 3,
+          size: "small",
+          /*当前页*/
+          currentPage: data.page,
+          itemTexts: function(type, page, current) {
+            switch (type) {
+              case "first":
+                return "首页";
+              case "prev":
+                return "上一页";
+              case "next":
+                return "下一页";
+              case "last":
+                return "末页";
+              case "page":
+                return page;
+            }
+          },
+          /*一共多少页*/
+          // 总页数=数据的总数/每页显示多少条数据
+          totalPages: Math.ceil(data.total / data.size),
+          /*点击页面事件*/
+          onPageClicked: function(event, originalEvent, type, page) {
+            /*改变当前页再渲染 page当前点击的按钮的页面*/
+            getProduceData(page);
+          }
+        });
+
+
+
       }
     })
 
