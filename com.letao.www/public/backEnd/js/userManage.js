@@ -43,6 +43,7 @@ $(function ($) {
           /*点击页面事件*/
           onPageClicked: function (event, originalEvent, type, page) {
             /*改变当前页再渲染 page当前点击的按钮的页面*/
+            console.log(page)
             userDate(page);
           }
         });
