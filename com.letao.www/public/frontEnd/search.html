@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <!-- 下面的meta代表 当在ios系统的手机中进入该网站  你的手机上的有信号显示的顶部是黑色 -->
+  <meta content="black" name="apple-mobile-web-app-status-bar-style">
+  <!-- 下面的meta代表 当在iso系统的手机中 是否是让系统标记出手机号或者email邮箱 如果你写的是no 代表忽略电话号码 
+        如果写的yes 那么会出现特殊的样式 
+  -->
+  <meta content="telephone=no" name="format-detection">
+  <meta name="description" content="乐淘是中国最大的正品运动鞋、皮鞋网上专卖。乐淘网经营的品牌包括耐克、阿迪达斯、李宁、匡威等国内外知名品牌的篮球鞋,板鞋,休闲鞋,跑步鞋,帆布...">
+  <meta name="Keywords" content="乐淘 乐淘鞋城 买鞋子 上乐淘 运动鞋 篮球鞋 帆布鞋 跑步鞋 男鞋 女鞋 足球鞋 休闲鞋 凉鞋 户外鞋 布洛克 高跟鞋 单鞋 豆豆鞋 乐福鞋 牛津鞋 凉拖 皮鞋 短靴 长靴 登山鞋 徒步鞋 硫化鞋 训练鞋 溯溪鞋 越野鞋 板鞋 足球鞋 网球鞋 赛车鞋 雪地靴 马丁靴 商务 英伦">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <title>乐淘云购--搜索中心</title>
+  <!-- 引入mui的css文件 -->
+  <link rel="stylesheet" href="./lib/mui/css/mui.min.css">
+  <!-- 字体图标库 -->
+  <link rel="stylesheet" href="./lib/fontAwesome/css/font-awesome.min.css">
+  <!-- 引入当前页面的css -->
+  <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="./css/search.css">
+</head>
+
+<body>
+
+  <!-- 顶部导航 -->
+  <header class="mui-bar mui-bar-nav lt-header">
+    <a href="javascript:history.back();" class="fa fa-arrow-left mui-pull-left "></a>
+    <a href="./search.html" class="fa fa-search mui-pull-right mui-plus-visible"></a>
+    <h1 class="mui-title">搜索中心</h1>
+  </header>
+
+  <!-- 底部工具 -->
+  <nav class="mui-bar mui-bar-tab lt-toolbar">
+    <a class="mui-item mui-active" href="./index.html">
+      <span class="fa fa-home"></span>
+      <span class="mui-tab-label">首页</span>
+    </a>
+    <a class="mui-item" href="./sort.html">
+      <span class="fa fa-navicon"></span>
+      <span class="mui-tab-label">分类</span>
+    </a>
+    <a class="mui-item" href="./cart.html">
+      <span class="fa fa-shopping-cart"></span>
+      <span class="mui-tab-label">购物车</span>
+    </a>
+    <a class="mui-item" href="./user.html">
+      <span class="fa fa-user"></span>
+      <span class="mui-tab-label">会员中心</span>
+    </a>
+  </nav>
+  <!-- 中间内容 -->
+  <div class="mui-content lt-search">
+    <form>
+      <div class="search-box">
+        <span>搜索</span>
+        <input type="text" placeholder="搜索你喜欢的商品">
+      </div>
+    </form>
+    <div class="search-history">
+      <div class="search-history-title mui-clearfix">
+        <span class="mui-pull-left">搜索历史</span>
+        <span class="mui-pull-right"><i class="fa fa-trash"></i> 清空记录</span>
+      </div>
+      <ul class="search-history-list">
+        <li>
+          <span class="mui-pull-left">nike</span>
+          <i class="fa fa-times mui-pull-right"></i>
+        </li>
+        <li>
+            <span class="mui-pull-left">nike</span>
+            <i class="fa fa-times mui-pull-right"></i>
+          </li>
+      </ul>
+    </div>
+  </div>
+  <script src="./lib/mui/js/mui.min.js"></script>
+  <!-- 这是zepto里的核心模块之一在开发的时候可以一一进行引入 但是当项目上线之后 就需要合并所有模块 -->
+  <script src="./lib/zepto/zepto.min.js"></script>
+  <script src="./lib/artTemplate/template-native.js"></script>
+  <script src="./js/common.js"></script>
+
+</body>
+
+</html>

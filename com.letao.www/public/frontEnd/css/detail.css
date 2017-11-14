@@ -1,0 +1,94 @@
+.lt-detail {
+  background-color: #fff;
+}
+
+/* 商品详情滚动内容 */
+.detail-name {
+  width: 100%;
+  font-size:18px;
+  background-color: #fff;
+  color: #333;
+  padding: 15px 5px;
+  box-sizing: border-box;
+}
+
+.detail-price {
+  border-top: 1px solid #ccc;
+  height: 50px;
+  line-height: 50px;
+  padding: 0px 5px;
+  color: #333;
+  font-size: 14px;
+}
+
+.detail-price .new {
+  font-size: 24px;
+  color: #ea543d;
+  font-weight: bold;
+}
+
+.detail-price .old {
+  color: #999;
+  text-decoration: line-through;
+  margin-left: 10px;
+}
+
+
+.detail-size {
+
+  width: 100%;
+  padding: 8px 5px;
+  border-top: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.detail-size span:nth-last-child(-n+21) {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  text-align: center;
+  line-height: 28px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+
+
+
+
+
+
+
+/* 底部工具栏 */
+.lt-toolbar {
+ background-color: #e6e6e6;
+}
+
+.lt-toolbar > a {
+  font-size: 20px;
+  line-height: 50px;
+  color: #000;
+  padding: 0 20px;
+}
+
+.lt-toolbar button {
+  width: 122px;
+  height: 36px;
+  text-align: center;
+  line-height: 22px;
+  color: #fff;
+  margin-top: calc((50px - 36px)/2) ;
+}
+
+.lt-toolbar button.add-cart {
+  background-color: #991020;
+}
+
+.lt-toolbar button.now-buy {
+  background-color: #fa672d;
+  margin-left: 10px;
+}
+
+

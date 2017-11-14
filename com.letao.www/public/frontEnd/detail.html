@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <!-- 下面的meta代表 当在ios系统的手机中进入该网站  你的手机上的有信号显示的顶部是黑色 -->
+  <meta content="black" name="apple-mobile-web-app-status-bar-style">
+  <!-- 下面的meta代表 当在iso系统的手机中 是否是让系统标记出手机号或者email邮箱 如果你写的是no 代表忽略电话号码 
+        如果写的yes 那么会出现特殊的样式 
+  -->
+  <meta content="telephone=no" name="format-detection">
+  <meta name="description" content="乐淘是中国最大的正品运动鞋、皮鞋网上专卖。乐淘网经营的品牌包括耐克、阿迪达斯、李宁、匡威等国内外知名品牌的篮球鞋,板鞋,休闲鞋,跑步鞋,帆布...">
+  <meta name="Keywords" content="乐淘 乐淘鞋城 买鞋子 上乐淘 运动鞋 篮球鞋 帆布鞋 跑步鞋 男鞋 女鞋 足球鞋 休闲鞋 凉鞋 户外鞋 布洛克 高跟鞋 单鞋 豆豆鞋 乐福鞋 牛津鞋 凉拖 皮鞋 短靴 长靴 登山鞋 徒步鞋 硫化鞋 训练鞋 溯溪鞋 越野鞋 板鞋 足球鞋 网球鞋 赛车鞋 雪地靴 马丁靴 商务 英伦">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <title>乐淘云购--商品详情</title>
+  <!-- 引入mui的css文件 -->
+  <link rel="stylesheet" href="./lib/mui/css/mui.min.css">
+  <!-- 字体图标库 -->
+  <link rel="stylesheet" href="./lib/fontAwesome/css/font-awesome.min.css">
+  <!-- 引入当前页面的css -->
+  <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="./css/detail.css">
+
+</head>
+
+<body>
+
+  <!-- 顶部导航 -->
+  <header class="mui-bar mui-bar-nav lt-header">
+      <a href="javascript:history.back();" class="fa fa-arrow-left mui-pull-left "></a>
+      <a href="./index.html" class="fa fa-home mui-pull-right"></a>
+    <h1 class="mui-title">商品详情</h1>
+  </header>
+
+  <!-- 底部工具 -->
+  <nav class="mui-bar mui-bar-tab lt-toolbar">
+    <!-- 点击之后会跳转到购物车页面 -->
+    <a href="" class="fa fa-shopping-cart"></a>
+    <button class="add-cart">加入购物车</button>
+    <button class="now-buy">立即购买</button>
+  </nav>
+  <!-- 中间内容 -->
+  <div class="mui-content lt-detail">
+   <!-- 轮播图 -->
+   <div class="mui-slider">
+      <div class="mui-slider-group mui-slider-loop">
+        <div class="mui-slider-item mui-slider-item-duplicate">
+          <a href="#">
+            <img src="./images/detail.jpg" alt="">
+          </a>
+        </div>
+        <div class="mui-slider-item">
+          <a href="#">
+            <img src="./images/detail.jpg" alt="">
+          </a>
+        </div>
+
+        <div class="mui-slider-item mui-slider-item-duplicate">
+          <a href="#">
+            <img src="./images/detail.jpg" alt="">
+          </a>
+        </div>
+      </div>
+      <div class="mui-slider-indicator">
+        <div class="mui-indicator mui-active"></div>
+        <div class="mui-indicator"></div>
+      </div>
+    </div>
+   <!-- 商品名称 -->
+   <p class="detail-name">Sport飓风 Nike Kwazi 休闲运动鞋男 844839-002-001-100-400</p>
+   <!-- 价格 -->
+   <div class="detail-price">
+    <span>价格：</span><span class="new">￥499.1</span> <span class="old">￥888.1</span>
+   </div>
+   <!-- 尺码 -->
+   <div class="detail-size">
+     <span>尺码：</span> <span>30</span>
+     <span>31</span>
+     <span>32</span>
+     <span>33</span>
+     <span>34</span>
+     <span>35</span>
+     <span>36</span>
+     <span>37</span>
+     <span>38</span>
+     <span>39</span>
+     <span>40</span>
+     <span>41</span>
+     <span>42</span>
+     <span>43</span>
+     <span>44</span>
+     <span>45</span>
+     <span>46</span>
+     <span>47</span>
+     <span>48</span>
+     <span>49</span>
+     <span>50</span>
+   </div>
+   <!-- 数量 -->
+   <div class="detail-num">
+    <span>数量:</span> <span>-</span><span>0</span><span>+</span>
+    <span>剩余20件</span>
+   </div>
+  </div>
+  <script src="./lib/mui/js/mui.min.js"></script>
+  <!-- 这是zepto里的核心模块之一在开发的时候可以一一进行引入 但是当项目上线之后 就需要合并所有模块 -->
+  <script src="./lib/zepto/zepto.min.js"></script>
+  <script src="./lib/artTemplate/template-native.js"></script>
+  <script src="./js/common.js"></script>
+</body>
+
+</html>
