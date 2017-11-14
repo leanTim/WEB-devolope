@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    var arr = [1,2,3,4,2,3,5,1,3] 
+    var newArr = [1] 
+    arr.forEach(function (item, i) {
+      newArr.forEach(function (key, index) {
+        if (key !== item) {
+          newArr.push(item)
+        }
+      })
+    })
+    console.log(newArr)    
+  </script>
+</body>
+</html>
