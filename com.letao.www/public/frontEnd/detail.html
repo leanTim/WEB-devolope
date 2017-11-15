@@ -112,6 +112,62 @@
       </div>
     </div>
   </div>
+
+  <script type="text/template" id="templateOne">
+    <div>
+      <!-- 轮播图 -->
+      <div class="mui-slider">
+        <div class="mui-slider-group mui-slider-loop">
+          <div class="mui-slider-item mui-slider-item-duplicate">
+            <a href="#">
+              <img src="<%=pic[0].picAddr%>" alt="">
+            </a>
+          </div>
+          <%for (var i = 0; i < pic.length; i++) {%>
+            <div class="mui-slider-item slider-box" data-id="<%=pic[i].productId%>">
+                <a href="#">
+                  <img src="<%=pic[i].picAddr%>" alt="">
+                </a>
+              </div>
+              <%}%>
+
+          <div class="mui-slider-item mui-slider-item-duplicate">
+            <a href="#">
+              <img src="<%=pic[pic.length-1].picAddr%>" alt="">
+            </a>
+          </div>
+        </div>
+        <div class="mui-slider-indicator">
+          <div class="mui-indicator mui-active"></div>
+          <div class="mui-indicator"></div>
+        </div>
+      </div>
+      <!-- 商品名称 -->
+      <p class="detail-name"><%=proName%></p>
+      <!-- 价格 -->
+      <div class="detail-price">
+        <span>价格：</span>
+        <span class="new"><%=price%></span>
+        <span class="old"><%=oldPrice%></span>
+      </div>
+      <!-- 尺码 -->
+      <div class="detail-size">
+        <span>尺码：</span>
+        <%for (var i = smallSize; i <= largeSize; i++){%>
+          <span><%=i%></span>
+          <%}%>
+      </div>
+      <!-- 数量 -->
+      <div class="detail-num">
+        <span>数量:</span>
+        <span>-</span>
+        <span>0</span>
+        <span>+</span>
+        <span>剩余20件</span>
+      </div>
+    </div>
+
+  </script>
   <script src="./lib/mui/js/mui.min.js"></script>
   <!-- 这是zepto里的核心模块之一在开发的时候可以一一进行引入 但是当项目上线之后 就需要合并所有模块 -->
   <script src="./lib/zepto/zepto.min.js"></script>

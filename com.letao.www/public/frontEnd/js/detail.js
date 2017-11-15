@@ -1,20 +1,38 @@
 $(function () {
-  var detailHTML = window.localStorage.getItem('detailData')
-  //因为页面是动态加载的 不能直接获取到id 要通过委托的方式获取id
-  var productId = $('.slider-box').data('id')
-  console.log(productId)
-  $('.lt-detail').html(detailHTML)
+  var url = new URLSearchParams(window.location.search)
+  var URLParams = url.get('id')
+  //将数据渲染在页面上
+  getDetailData(URLParams)
 
-  $('.add-cart').on('singleTap', function () {
-    $.ajax({
-      url: ' /cart/addCart',
-      type: 'post',
-      data: {
-
-      }
-    })
-
-
-  })
 
 })
+
+
+//获取页面的数据并展示在页面上的函数
+var getDetailData = function (id) {
+  
+  $.ajax({
+    url: '/product/queryProductDetail',
+    type: 'get',
+    data: {
+      id: id
+    },
+    success: function (data) {
+      
+      var sizeArr = data.size.split('-')
+      var largeSize = parseInt(sizeArr[1])
+      var smallSize = parseInt(sizeArr[0])
+
+      data.smallSize = smallSize
+      data.largeSize = largeSize
+      
+      var detailData = template('templateOne', data)
+      $('.lt-detail').html(detailData)
+
+    }
+  })
+  
+
+}
+
+//

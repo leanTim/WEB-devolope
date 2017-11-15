@@ -110,6 +110,8 @@ $(function () {
   //
   $('.search-result-list').on('singleTap', '.item', function () {
     var id = $(this).data('id')
+    window.location.href = '/frontEnd/detail.html?id=' + id
+
     $.ajax({
       url: '/product/queryProductDetail',
       type: 'get',
@@ -129,11 +131,10 @@ $(function () {
         var detailData = template('templateOne', data)
         // console.log(detailData)
         window.localStorage.setItem('detailData', detailData)
-        window.location.href = '/frontEnd/detail.html'
-
-
+ 
       }
     })
+    
   })
 
 
