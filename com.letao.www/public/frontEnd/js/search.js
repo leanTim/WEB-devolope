@@ -1,7 +1,8 @@
 $(function () {
   //获取searchList的数据并且展示在页面上
-  var liArr = []
+  
   var getSearchResult = function (page) {
+    var liArr = []
     $('.search-box').on('singleTap', 'span', function () {
       var proName = $('.search-box input').val()
       // console.log(proName)
@@ -17,16 +18,18 @@ $(function () {
           var html = template('template-one', data)
           //将searchList的数据设置为本地存储的内容
           window.localStorage.setItem('ltSearchResult', html)
-          window.location.href = '/frontEnd/searchList.html'
+         
 
           console.log(data)
           liArr.push(proName)
-          // console.log(liArr)
+          console.log(liArr)
           window.localStorage.setItem('searchHistory', liArr)
           var ajaxRes = window.localStorage.getItem('searchHistory')
           var ajaxArr = ajaxRes.split(',')
           // console.log(ajaxArr)
           getUlContent(ajaxArr)
+
+          window.location.href = '/frontEnd/searchList.html'
           
         }
       })
@@ -85,14 +88,15 @@ $(function () {
 
   //添加清除按钮的功能
   $('.clear').on('singleTap', function () {
-    var clearArr = []
-    window.localStorage.setItem('searchHistory', clearArr)
+    resultArr = []
+    resultArr = window.resultArr
+    window.localStorage.setItem('searchHistory', resultArr)
     // console.log(1)
-    clearRes = window.localStorage.getItem('searchHistory')
+    // clearRes = window.localStorage.getItem('searchHistory')
     // console.log(liShow)
     
     // console.log($(this).siblings().text())
-    getUlContent(clearArr)
+    getUlContent(resultArr)
   })
 
 

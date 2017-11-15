@@ -60,12 +60,13 @@
         <input type="text" placeholder="搜索你喜欢的商品">
       </div>
     </form>
-    <div class="search-history">
+    <p style="display: none;" id="no-search-result">没有搜索历史</p>
+    <div class="search-history" id="result-list">
       <div class="search-history-title mui-clearfix">
         <span class="mui-pull-left">搜索历史</span>
-        <span class="mui-pull-right clear"><i class="fa fa-trash"></i> 清空记录</span>
+        <span class="mui-pull-right clear" id="clear-all"><i class="fa fa-trash"></i> 清空记录</span>
       </div>
-      <ul class="search-history-list">
+      <ul class="search-history-list" id="search-ul">
         <!-- <li>
           <span class="mui-pull-left">nike</span>
           <i class="fa fa-times mui-pull-right"></i>
@@ -97,13 +98,26 @@
       <%}%>
 
   </script>
+  <script type="text/x-template" id="template-two">
+    <%for (var i =0; i < data.length; i++) {%>
+      <li>
+          <span class="mui-pull-left"><%=data[i]%></span>
+          <i class="fa fa-times mui-pull-right"></i>
+      </li>
+
+      <%}%>
+  
+  
+  </script>
+
+
   <script src="./lib/mui/js/mui.min.js"></script>
   <!-- 这是zepto里的核心模块之一在开发的时候可以一一进行引入 但是当项目上线之后 就需要合并所有模块 -->
   <script src="./lib/zepto/zepto.min.js"></script>
   <script src="./lib/artTemplate/template-native.js"></script>
   <script src="./js/common.js"></script>
   <!-- 引入本页的js文件 -->
-  <script src="./js/search.js"></script>
+  <script src="./js/search1.js"></script>
 
 </body>
 
