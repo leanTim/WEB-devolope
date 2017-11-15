@@ -20,7 +20,8 @@ $(function () {
     ulContent()
     //展现搜索结果
     var proName = $('.search-box input').val()
-    getSearchResult(proName)
+    // getSearchResult(proName)
+    window.location.href = '/frontEnd/searchList.html?proName=' + proName
   })
 
   //清除所有的记录
@@ -38,10 +39,11 @@ $(function () {
   })
 
   //点击搜索历史的每一条内容 实现搜索功能
-  $('#search-ul').on('singleTap', 'li', function () {
-    var liContent = $(this).children('span').text()
+  $('#search-ul').on('singleTap', 'span', function () {
+    var liContent = $(this).text()
     // console.log(liContent)
-    getSearchResult(liContent)
+    // getSearchResult(liContent)
+    window.location.href = '/frontEnd/searchList.html?proName=' + liContent
   })
 
 
@@ -100,17 +102,20 @@ $(function () {
   }
 
   //搜索跳转功能
-  var getSearchResult = function (proName, page) {
+  var getSearchResult = function (proName, page, price, num) {
     // var proName = $('.search-box input').val()
     $.ajax({
       url: '/product/queryProduct',
       type: 'get',
       data: {
         page: page || 1,
-        pageSize: 5,
-        proName: proName
+        pageSize: 16,
+        proName: proName,
+        price: price || 2,
+        num: num || 2
       },
       success: function (data) {
+        console.log(data)
         var html = template('template-one', data)
         //将searchList的数据设置为本地存储的内容
         window.localStorage.setItem('ltSearchResult', html)

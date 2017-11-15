@@ -18,6 +18,8 @@
   <!-- 引入mui的css文件 -->
   <link rel="stylesheet" href="./lib/mui/css/mui.min.css">
   <!-- 字体图标库 -->
+  <!-- 引入Nprogress -->
+  <!-- <link rel="stylesheet" href="./lib/nprogress/nprogress.css"> -->
   <link rel="stylesheet" href="./lib/fontAwesome/css/font-awesome.min.css">
   <!-- 引入当前页面的css -->
   <link rel="stylesheet" href="./css/common.css">
@@ -78,26 +80,8 @@
       </ul>
     </div>
   </div>
-  <script type="text/x-template" id="template-one">
-    <%if (data.length) {%>
-      <%for (var i = 0; i < data.length; i++) {%>
-        <div class="item-wrap">
-          <a class="item" data-id="<%=data[i].id%>">
-            <img src="./images/product.jpg" alt="">
-            <p><%=data[i].proName%> </p>
-            <div class="price">
-              <span class="new"><%=data[i].price%></span>
-              <span class="old"><%=data[i].oldPrice%></span>
-            </div>
-            <button>立即购买</button>
-          </a>
-        </div>
-      <%}%>
-      <%} else {%>
-      <h4>没用更多商品</h4>
-      <%}%>
-
-  </script>
+  
+  
   <script type="text/x-template" id="template-two">
     <%for (var i =0; i < data.length; i++) {%>
       <li>
@@ -115,9 +99,12 @@
   <!-- 这是zepto里的核心模块之一在开发的时候可以一一进行引入 但是当项目上线之后 就需要合并所有模块 -->
   <script src="./lib/zepto/zepto.min.js"></script>
   <script src="./lib/artTemplate/template-native.js"></script>
+  <!-- 引入Nprogress -->
+  <!-- <script src="./lib/nprogress/nprogress.js"></script> -->
   <script src="./js/common.js"></script>
   <!-- 引入本页的js文件 -->
   <script src="./js/search1.js"></script>
+
 
 </body>
 
