@@ -128,9 +128,9 @@ $(function () {
         data.largeSize = largeSize
         
         console.log(data)
-        var detailData = template('templateOne', data)
+        // var detailData = template('templateOne', data)
         // console.log(detailData)
-        window.localStorage.setItem('detailData', detailData)
+        // window.localStorage.setItem('detailData', detailData)
  
       }
     })

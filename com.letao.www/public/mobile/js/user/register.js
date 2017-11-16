@@ -51,6 +51,8 @@ $(function(){
 
         data.mobile = data.username;
 
+        console.log(data)
+
         LeTao.ajax({
             type:'post',
             url:'/user/register',
@@ -61,10 +63,11 @@ $(function(){
                 $('.btn_register').html('正在提交...');
             },
             success:function(data){
+                console.log(data)
                 window.loading = null;
                 if(data.success){
                     mui.toast('注册成功！');
-                    location.href = LeTao.LOGIN_URL;
+                    // location.href = LeTao.LOGIN_URL;
                 }else{
                     mui.toast(data.message);
                     $('.btn_register').html('注册');

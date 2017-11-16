@@ -119,6 +119,7 @@ var getCartData = function(callback){
         url:'/cart/queryCart',
         dataType:'json',
         success:function(data){
+            console.log(data)
             callback && callback(data);
         }
     });

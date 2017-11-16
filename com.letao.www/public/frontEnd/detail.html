@@ -22,6 +22,18 @@
   <!-- 引入当前页面的css -->
   <link rel="stylesheet" href="./css/common.css">
   <link rel="stylesheet" href="./css/detail.css">
+  <style>
+    .detail-size span.now {
+      background-color: #fa672d;
+    }
+    .prompt-msg {
+      position: fixed;
+      left: 100px;
+      bottom: 50px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+    }
+  </style>
 
 </head>
 
@@ -37,7 +49,7 @@
   <!-- 底部工具 -->
   <nav class="mui-bar mui-bar-tab lt-toolbar">
     <!-- 点击之后会跳转到购物车页面 -->
-    <a href="" class="fa fa-shopping-cart"></a>
+    <a class="fa fa-shopping-cart"></a>
     <button class="add-cart">加入购物车</button>
     <button class="now-buy">立即购买</button>
   </nav>
@@ -154,16 +166,17 @@
       <div class="detail-size">
         <span>尺码：</span>
         <%for (var i = smallSize; i <= largeSize; i++){%>
-          <span><%=i%></span>
+          <span class="size-box"><%=i%></span>
           <%}%>
       </div>
       <!-- 数量 -->
       <div class="detail-num">
         <span>数量:</span>
-        <span>-</span>
-        <span>0</span>
-        <span>+</span>
+        <span class="less-num change-num">-</span>
+        <span class="current-num" data-id="<%=id%>">0</span>
+        <span class="more-num change-num">+</span>
         <span>剩余20件</span>
+
       </div>
     </div>
 

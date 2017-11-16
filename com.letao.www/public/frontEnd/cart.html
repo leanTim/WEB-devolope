@@ -64,6 +64,42 @@
 		</footer>
 	</div>
 
+	<script type="text/template" id="template-one">
+		<li data-product="<%=id%>" class="mui-table-view-cell">
+			<div class="mui-slider-right mui-disabled">
+				
+					<a data-id="<%=productId%>" class="mui-btn mui-btn-blue">编辑</a>
+					
+						<a data-id="<%=productId%>" class="mui-btn mui-btn-red">删除</a>
+			</div>
+			<a href="javascript:;" class="mui-navigate-right mui-slider-handle">
+				
+					<img class="mui-media-object mui-pull-left" src="<%=pic[0].picName%>">
+					<div class="mui-media-body">
+						<p class="name">
+							<%=proName%>
+						</p>
+						<p class="info">
+							<span class="price">¥<%=price%></span>
+							<span class="oldPrice">¥<%=oldPrice%></span>
+							<span class="number">x<%=num%>双</span>
+						</p>
+						<p>
+							<span class="size">鞋码：
+								<%=size%>
+							</span>
+						</p>
+					</div>
+					
+						<input data-id="<%=productId%>" type="checkbox">
+						
+			</a>
+		</li>
+	
+	
+	
+	</script>
+
 	<script src="./lib/mui/js/mui.min.js"></script>
 	<!-- 这是zepto里的核心模块之一在开发的时候可以一一进行引入 但是当项目上线之后 就需要合并所有模块 -->
 	<script src="./lib/zepto/zepto.min.js"></script>
